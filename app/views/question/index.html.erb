@@ -1,0 +1,25 @@
+<h1>ASK!</h1>
+
+<!--<form action="/question/show">-->
+<!--    이름: <input type="text" name="name">-->
+<!--    <input type="radio" name="who" value="1">익명-->
+<!--    <input type="radio" name="who" value="2">공개<br>-->
+<!--    질문: <input type="text" name="ask">-->
+<!--    <input type="submit" value="전송">-->
+<!--</form>-->
+
+
+<form action="/question/show">
+     공개선택 : 
+    <select name="name">
+      <option value="XXX">익명</option>
+      <option value="<%= session[:user_email] %>">공개</option>
+    </select>
+    질문: <input type="text" name="ask">
+    <input type="submit" value="전송">
+</form>
+
+<% @questions.each do |q| %>
+<p>이름: <%= q.name %></p>
+<p>질문: <%= q.content %></p>
+<% end %>
